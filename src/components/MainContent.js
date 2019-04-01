@@ -7,7 +7,7 @@ const MainContent = () => {
         backgroundColor:'asure'
     }
 
-    let date = new Date(2018, 6, 31, 14);
+    let date = new Date();
     let currentHour = date.getHours();
     let timeOfDay = '';
     if(currentHour > 5 && currentHour <12){
