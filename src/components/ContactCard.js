@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
+
 
 const ContactCard = (props) => {
         return (
             <div className="contact-card">
-                <img align="center" src={props.image}/>
+                <img align="center" src={props.image} alt="img"/>
                 <h3><font color="#3AC1EF">▍{props.name}</font></h3>
                 <p>Phone: {props.phone}</p>
                 <p>Email: {props.email}</p>
