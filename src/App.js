@@ -18,22 +18,10 @@ class App extends Component {
 
       return (
           <div className="contacts">
-              <ContactCard
-                  contact={cats.wees}
-              />
-
-              <ContactCard
-                  contact={cats.flu}
-              />
-
-              <ContactCard
-                  contact={cats.destroyer}
-              />
-
-              <ContactCard
-                  contact={cats.felix}
-              />
-
+              <ContactCard contact={cats.wees}/>
+              <ContactCard contact={cats.flu}/>
+              <ContactCard contact={cats.destroyer}/>
+              <ContactCard contact={cats.felix}/>
           </div>
       )
   }
