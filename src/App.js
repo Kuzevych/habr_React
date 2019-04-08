@@ -1,29 +1,20 @@
-import React, { Component } from 'react';
-// import Header from './components/Header';
-// import Greeting from './components/Greeting';
-// import cats from './json/cats';
-// import ContactCard from "./components/ContactCard";
-import ChildComponent from './components/ChildComponent';
+import React, {Component} from "react"
+
 class App extends Component {
-    // constructor(){
-    //    super()
-    //     this.state = {
-    //         answer: "YES"
-    //     }
-    // }
-    state = {
-        answer: "YES"
-    };
-  render() {
-        console.log(this.state.answer);
-    return (
-        <>
-            <h1>Is state important to know? {this.state.answer}</h1>
-            <button>Click</button>
-            <ChildComponent answer={this.state.answer}/>
-        </>
-    );
-  }
+    constructor(){
+        super()
+        this.state = {
+            isLoggedIn: false,
+        }
+    }
+
+    render() {
+        return (
+            <div>
+                <h1>You are currently logged {!this.state.isLoggedIn ? 'out' : 'in'}</h1>
+            </div>
+        )
+    }
 }
 
-export default App;
+export default App
