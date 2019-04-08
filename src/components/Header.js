@@ -1,14 +1,15 @@
-import React from 'react';
-import '../scss/Header.scss';
+import React, {Component} from 'react';
 
-const Header = () => {
+class Header extends Component {
+    render() {
         return (
-            <header className='navbar'>
-                This is header
+            <header>
+                <p>Welcome, {this.props.username}!</p>
             </header>
         );
+    }
 }
 
-
+Header.propTypes = {};
 
 export default Header;
