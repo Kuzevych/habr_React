@@ -1,20 +1,18 @@
 import React, {Component} from "react"
 
-class App extends Component {
-    constructor(){
-        super()
-        this.state = {
-            isLoggedIn: false,
-        }
-    }
+const App = () => {
+        const handleClick = () =>{
+            console.log('Yes')
+        };
 
-    render() {
         return (
-            <div>
-                <h1>You are currently logged {!this.state.isLoggedIn ? 'out' : 'in'}</h1>
+            <div style={{marginLeft:'100px', marginTop:'30px'}}>
+                <img onFocus={()=>console.log('YEEEES')} src='https://www.fillmurray.com/200/100'/>
+                <br />
+                <br />
+                <button onMouseUp={handleClick}>Click me</button>
             </div>
         )
-    }
 }
 
 export default App
