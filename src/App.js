@@ -1,18 +1,38 @@
 import React, {Component} from "react"
-
-const App = () => {
-        const handleClick = () =>{
-            console.log('Yes')
-        };
-
+import '../src/App.css';
+class App extends Component{
+    constructor(){
+        super()
+        this.state = {
+            count: 0
+        }
+        this.handleClick = this.handleClick.bind(this)
+        this.minHandleClick = this.minHandleClick.bind(this)
+    }
+    handleClick() {
+        this.setState(prevState => {
+            return {
+                count: prevState.count + 1
+            }
+        })
+    }
+    minHandleClick() {
+        this.setState(prevState => {
+            return {
+                count: prevState.count - 1
+            }
+        })
+    }
+    render(){
         return (
-            <div style={{marginLeft:'100px', marginTop:'30px'}}>
-                <img onFocus={()=>console.log('YEEEES')} src='https://www.fillmurray.com/200/100'/>
-                <br />
-                <br />
-                <button onMouseUp={handleClick}>Click me</button>
-            </div>
-        )
+                <div style={this.styles}>
+                    <h3>{this.state.count}</h3>
+                    <br/>
+                    <button onClick={this.handleClick}>+1</button>
+                    <button onClick={this.minHandleClick}>-1</button>
+                </div>
+            )
+    }
 }
 
-export default App
+export default App;
