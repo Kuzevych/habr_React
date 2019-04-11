@@ -1,36 +1,39 @@
 import React, {Component} from "react"
 import '../src/App.css';
+import Item from "./components/Item";
+
+
 class App extends Component{
     constructor(){
         super()
         this.state = {
-            count: 0
-        }
-        this.handleClick = this.handleClick.bind(this)
-        this.minHandleClick = this.minHandleClick.bind(this)
+            completed: true,
+            array: []
+        };
     }
-    handleClick() {
-        this.setState(prevState => {
+
+    changeStatus = (completed) => {
+        this.setState( prevState => {
+            const newArr = [...prevState.array,!completed]
             return {
-                count: prevState.count + 1
+                completed: !prevState.completed,
+                array: newArr
             }
         })
     }
-    minHandleClick() {
+
+    deleteLastFromArray =() => {
+        console.log('hey')
         this.setState(prevState => {
             return {
-                count: prevState.count - 1
+                array: [...prevState.array,prevState.array[5]]
             }
         })
     }
+
     render(){
         return (
-                <div style={this.styles}>
-                    <h3>{this.state.count}</h3>
-                    <br/>
-                    <button onClick={this.handleClick}>+1</button>
-                    <button onClick={this.minHandleClick}>-1</button>
-                </div>
+            <Item toggleStatus={this.changeStatus}  checks={this.state.completed} deleteLastFromArray={this.deleteLastFromArray}/>
             )
     }
 }
