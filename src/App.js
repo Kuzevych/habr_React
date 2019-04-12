@@ -14,7 +14,8 @@ class App extends Component{
 
     changeStatus = (completed) => {
         this.setState( prevState => {
-            const newArr = [...prevState.array,!completed]
+            const sortArray = prevState.array.sort((a,b)=>b-1)
+            const newArr = [...sortArray,sortArray.length]
             return {
                 completed: !prevState.completed,
                 array: newArr
@@ -23,10 +24,9 @@ class App extends Component{
     }
 
     deleteLastFromArray =() => {
-        console.log('hey')
         this.setState(prevState => {
             return {
-                array: [...prevState.array,prevState.array[5]]
+                array: [...prevState.array,prevState.array.length]
             }
         })
     }
