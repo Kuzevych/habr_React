@@ -1,41 +1,46 @@
 import React, {Component} from "react"
 import '../src/App.css';
 import Item from "./components/Item";
-
+import Count from './components/Count';
+import item from './json/items';
 
 class App extends Component{
     constructor(){
         super()
         this.state = {
-            completed: true,
-            array: []
+            completed: item,
+            count: 0
         };
     }
 
-    changeStatus = (completed) => {
-        this.setState( prevState => {
-            const sortArray = prevState.array.sort((a,b)=>b-1)
-            const newArr = [...sortArray,sortArray.length]
-            return {
-                completed: !prevState.completed,
-                array: newArr
-            }
-        })
-    }
-
-    deleteLastFromArray =() => {
+    handleChange = (block) => {
+        //console.log(block.status)
         this.setState(prevState => {
+            const updateItem = prevState.completed.map(item => {
+                if(item.id===block.id){
+                    item.status=!item.status
+                }
+                return item
+            })
+
             return {
-                array: [...prevState.array,prevState.array.length]
+                completed: updateItem,
+                count: prevState.count+1
             }
         })
     }
 
     render(){
         return (
-            <Item toggleStatus={this.changeStatus}  checks={this.state.completed} deleteLastFromArray={this.deleteLastFromArray}/>
-            )
+            <div className='main'>
+                <div>
+                    {this.state.completed.map(item =><Item key={item.id} item={item} handleChange={this.handleChange}/>)}
+                </div>
+                <div>
+                    <Count count={this.state.count}/>
+                </div>
+            </div>
+        )
     }
 }
-
 export default App;

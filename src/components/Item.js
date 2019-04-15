@@ -1,10 +1,11 @@
 import React from 'react';
 
 const Item = (props) => {
+
     return (
-        <div>
-            <input type='checkbox' checked={props.checks} onChange={()=>props.toggleStatus(props.checks)}/>
-            <button onClick={props.deleteLastFromArray}>Click</button>
+        <div className='item'>
+            <input onChange={()=>props.handleChange(props.item)} type='checkbox' checked={props.item.status}/>
+            <p>{props.item.text}</p>
         </div>
     )
 }

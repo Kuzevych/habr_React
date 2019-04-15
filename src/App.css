@@ -1,25 +1,18 @@
-div {
+div{
+  margin-top: 10px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
 }
-
-h1 {
-  font-size: 3em;
+.count {
+  margin-left: 10px;
+  width: 40px;
+  border: 1px solid black;
 }
-
-button {
-  border: 1px solid lightgray;
-  background-color: transparent;
-  padding: 10px;
-  border-radius: 4px;
-}
-
-button:hover {
-  cursor: pointer;
-}
-
-button:focus {
-  outline:0;
-}
+/*.item {*/
+/*  width: calc(100%/4);*/
+/*  height: 200px;*/
+/*  border: 2px solid black;*/
+/*  margin: 30px 10px;*/
+/*}*/
