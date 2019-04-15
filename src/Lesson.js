@@ -1,35 +1,30 @@
 import React, {Component} from 'react';
-
+import Conditional from './components/Conditional'
 class Lesson extends Component {
     constructor(){
         super()
         this.state = {
-            exchange: {}
+            isLoading: true
         }
     }
-        componentDidMount(){
-           fetch('https://api.exchangeratesapi.io/latest').then(response=>response.json())
-               .then(data=>{
-                   this.setState(prevState=>{
-                       return {
-                           exchange: data
-                       }
-                   })
-               })
-        }
-        componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log(snapshot)
-    }
+       componentDidMount() {
+            setTimeout(()=>{
+                this.setState({
+                        isLoading: false
+                })
+            },4000)
+       }
 
-    getSnapshotBeforeUpdate(prevProps, prevState) {
-       // console.log(prevState)
-        return prevState
-    }
 
     render() {
+
         return (
             <div>
-                <h1 style={{textAlign:'center'}}>{this.state.exchange.base}</h1>
+                {
+                    this.state.isLoading ?
+                        <h1>Loading....</h1>:
+                        <Conditional />
+                }
             </div>
         );
     }
