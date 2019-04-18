@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 //import Lesson from './Lesson'
-import Rendering from './components/Renreding'
-//import App from "./App"
+//import Rendering from './components/Renreding'
+import App from "./App"
 
 ReactDOM.render(
-    <Rendering />,
+    <App />,
     document.getElementById("root")
 )
 
